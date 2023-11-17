@@ -8,7 +8,7 @@ tamano = str(ancho) + "x" + str(alto)
 ventana.geometry(tamano)
 ventana.title("ECUACION DE CONTINUIDAD")
 
-# Create Labels for the entry widgets
+
 ttk.Label(ventana, text="VELOCIDAD DE ENTRADA").grid(row=2, column=3, pady=5)
 va_entry = ttk.Entry(ventana, width=40)
 va_entry.grid(row=3, column=3)
