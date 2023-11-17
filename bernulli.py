@@ -7,7 +7,7 @@ class Ecuacion_bernulli(Scene):
         DOG="#556B2F"
         MNB="#191970"
         self.camera.background_color=LB
-
+        
         a1=MathTex("HIDRODINAMICA \\neq HIDROSTATICA",color=DOG)
         a2=Text("HIDRO=AGUA",color=DOG,font_size=40)  
         a21=Tex("DINÁMICA=MOVIMIENTO \\\\ ESTÁTICA=QUIETA",color=DOG,font_size=45)
@@ -55,11 +55,44 @@ class Ecuacion_bernulli(Scene):
         self.remove(a3)
         self.play(Write(a5))
         self.wait(2.5)
+        cora1=ImageMobject("cora1.jpg").scale(0.4).move_to(np.array([-4,-2.5,0]))
+        cora2=ImageMobject("cora2.jpg").scale(0.4).move_to(np.array([-4,-2.5,0]))
+        cora3=ImageMobject("cora3.jpg").scale(0.4).move_to(np.array([-4,-2.5,0]))  
+        cora4=ImageMobject("cora4.jpg").scale(0.4).move_to(np.array([-4,-2.5,0])) 
+        cora5=ImageMobject("cora5.jpg").scale(0.4).move_to(np.array([-4,-2.5,0]))
+        cora6=ImageMobject("cora6.jpg").scale(0.4).move_to(np.array([-4,-2.5,0]))
+        gri1=ImageMobject("gri1.jpg").scale(0.4).move_to(np.array([4,-2.5,0]))
+        gri2=ImageMobject("gri2.jpg").scale(0.4).move_to(np.array([4,-2.5,0]))
+        gri3=ImageMobject("gri3.jpg").scale(0.4).move_to(np.array([4,-2.5,0]))  
+        gri4=ImageMobject("gri4.jpg").scale(0.4).move_to(np.array([4,-2.5,0])) 
+        gri5=ImageMobject("gri5.jpg").scale(0.4).move_to(np.array([4,-2.5,0]))
+        gri6=ImageMobject("gri6.jpg").scale(0.4).move_to(np.array([4,-2.5,0]))
+        gri7=ImageMobject("gri7.jpg").scale(0.4).move_to(np.array([4,-2.5,0]))
+
+        self.add(cora1)
+        self.add(gri1)
+        self.wait(0.1)
+        self.play(Transform(cora1,cora2))
+        self.play(Transform(gri1,gri2))
+        self.wait(0.1)
+        self.play(Transform(cora2,cora3))
+        self.play(Transform(gri2,gri3))
+        self.wait(0.1)
+        self.play(Transform(cora3,cora4))
+        self.play(Transform(gri3,gri4))
+        self.wait(0.1)
+        self.play(Transform(cora5,cora6))
+        self.play(Transform(gri4,gri6))
+        self.wait(0.1)
+        self.play(Transform(gri6,gri7))
+        self.wait(1)
+        self.remove((cora1),(cora2),(cora3),(cora4),(cora5),(cora6))
+        self.remove((gri1),(gri2),(gri3),(gri4),(gri5),(gri6),(gri7))
         self.play(Transform(a5,a6))
         self.wait(2)
         self.remove((a5),(a6))
-        
         self.play(Write(a7))
+
         self.wait(1.5)
         self.play(Transform(a7,a8))
         self.wait(0.7)
@@ -82,13 +115,13 @@ class Ecuacion_bernulli(Scene):
         self.remove(a12)   
         self.play(Write(a13))
         self.wait(3)
-        
+    
         self.remove((a13))
         
         b1=Text("TUBOS HORIZONTALES",color=MNB)
-        b2=MathTex("P_A+\dfrac{d_L}{2}V^{2}_{A}=P_B+\dfrac{d_L}{2}V^{2}_{B}",color=MNB)
-        b3=Text("P=PRESIÓN(PASCAL)",color=MNB)
-        b4=MathTex("d_L=DENSIDAD-DEL-LIQUIDO (\dfrac{Kg}{m^3})",color=MNB)
+        b2=MathTex("P_A+\dfrac{\\rho}{2}V^{2}_{A}=P_B+\dfrac{\\rho}{2}V^{2}_{B}",color=MNB)
+        b3=MathTex("P=PRESION(PASCAL)",color=MNB)
+        b4=MathTex("\\rho=DENSIDAD-DEL-LIQUIDO (\dfrac{Kg}{m^3})",color=MNB)
         b5=MathTex("V=VELOCIDAD(\dfrac{m}{s})",color=MNB)
         b6=Text("TUBOS HORIZONTALES",color=MNB).move_to(np.array([0,1,0])),Text("+VELOCIDAD -PRESIÓN",color=MNB).move_to(np.array([0,0,0])),Text("-VELOCIDAD +PRESIÓN\n\t +SECCIÓN +PRESIÓN",color=MNB).move_to(np.array([0,-1,0]))
         self.play(Write(b1))
@@ -104,7 +137,7 @@ class Ecuacion_bernulli(Scene):
         self.wait(3)
         self.remove((b6[0]),(b6[1]),(b6[2]))
         c1=Text("TUBOS VERTICALES\nTUBOS INCLINADOS",color=DOG)
-        c2=MathTex("P_A+\dfrac{d_L}{2}V^{2}_{A}+d_Lgh_a=P_B+\dfrac{d_L}{2}V^{2}_{B}+d_Lgh_B",color=DOG)
+        c2=MathTex("P_A+\dfrac{\\rho}{2}V^{2}_{A}+\\rho gh_A=P_B+\dfrac{\\rho}{2}V^{2}_{B}+\\rho gh_B",color=DOG)
         c3=Text("g=GRAVEDAD",color=DOG).move_to(np.array([0,1,0])),Text("h=ALTURA",color=DOG).move_to(np.array([0,0,0])),Text("SIEMPRE UNA DE LAS DOS ALTURAS ES CERO",color=DOG,font_size=25).move_to(np.array([0,-1,0]))
         d1=Text("TORRICELLI",color=MNB)
         d2=MathTex("V_B=\sqrt{2gh}",color=MNB)
@@ -122,11 +155,7 @@ class Ecuacion_bernulli(Scene):
         self.wait(4)
         self.play(Transform(d1,d2),runtime=2)
         self.wait(4)
-        self.remove(d1)
-        self.play(Transform(d2,d3),run_time=2)
-        self.wait(5)
-
-
+        self.remove((d1),(d2))
 
 
 
