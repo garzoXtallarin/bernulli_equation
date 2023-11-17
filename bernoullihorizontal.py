@@ -8,7 +8,6 @@ tamano = str(ancho) + "x" + str(alto)
 ventana.geometry(tamano)
 ventana.title("ECUACION DE BERNOULLI TBOS HORIZONTALES")
 
-# Create Labels for the entry widgets
 ttk.Label(ventana, text="PRESION DE ENTRADA").grid(row=2, column=3, pady=5)
 pa_entry = ttk.Entry(ventana, width=40)
 pa_entry.grid(row=3, column=3)
